@@ -1,0 +1,48 @@
+import { createBrowserRouter, Route } from 'react-router';
+import { RootLayout } from './layouts/RootLayout';
+import { DashboardPage } from './pages/DashboardPage';
+import { AllLeadsPage } from './pages/AllLeadsPage';
+import { AssignLeadsPage } from './pages/AssignLeadsPage';
+import { VehicleLoanPage } from './pages/VehicleLoanPage';
+import UserDetailsPage from './pages/UserDetailsPage';
+import { HomeLoanPage } from './pages/HomeLoanPage';
+
+import { LAPPage } from './pages/LAPPage';
+import { LoanAgainstSharesPage } from './pages/LoanAgainstSharesPage';
+import { MedicalLoanPage } from './pages/MedicalLoanPage';
+import { SupplyChainLoanPage } from './pages/SupplyChain'; 
+import { EducationLoanPage } from './pages/EducationLoanPage';
+import { MutualFundsPage } from './pages/MutualFundsPage';
+import { LifeInsurancePage } from './pages/LifeInsurancePage';
+import { CreditCardPage } from './pages/CreditCardPage';
+import { GeneralInsurancePage } from './pages/GeneralInsurancePage';
+import { PartnerPage } from './pages/PartnerPage';
+import { ReportsPage } from './pages/ReportsPage';
+import { SettingsPage } from './pages/SettingsPage';
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    Component: RootLayout,
+    children: [
+      { index: true, Component: DashboardPage },
+      { path: 'leads', Component: AllLeadsPage },
+      { path: 'assign-leads', Component: AssignLeadsPage },
+      { path: 'vehicle-loan', Component: VehicleLoanPage },
+      { path: 'home-loan', Component: HomeLoanPage },
+      { path: 'user/:id', Component: UserDetailsPage },
+      { path: 'lap', Component: LAPPage },
+      { path: 'loan-against-shares', Component: LoanAgainstSharesPage },
+      { path: 'medical-loan', Component: MedicalLoanPage },
+      { path: 'supply-chain', Component: SupplyChainLoanPage }, 
+      { path: 'education-loan', Component: EducationLoanPage },
+      { path: 'mutual-funds', Component: MutualFundsPage },
+      { path: 'life-insurance', Component: LifeInsurancePage },
+      { path: 'credit-card', Component: CreditCardPage },
+      { path: 'general-insurance', Component: GeneralInsurancePage },
+      { path: 'partner', Component: PartnerPage },
+      { path: 'reports', Component: ReportsPage },
+      { path: 'settings', Component: SettingsPage },
+    ],
+  },
+]);
