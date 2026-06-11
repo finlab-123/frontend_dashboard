@@ -39,7 +39,6 @@ type MenuItem = MenuItemLink | MenuDivider;
 const menuItems: MenuItem[] = [
   { icon: LayoutDashboard, label: 'Dashboard Overview', path: '/' },
   { icon: Users, label: 'All Leads', path: '/leads' },
-  { icon: UserPlus, label: 'Assign Leads', path: '/assign-leads' },
   { divider: true, label: 'Loan Categories' },
   { icon: Car, label: 'Vehicle Loan', path: '/vehicle-loan' },
   { icon: Home, label: 'Home Loan', path: '/home-loan' },
