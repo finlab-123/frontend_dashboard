@@ -293,7 +293,7 @@ if (error) {
 ### Environment Setup
 Add to `.env.local`:
 ```
-VITE_API_BASE_URL=http://localhost:5000/api
+VITE_API_BASE_URL=https://bynd-backend-owi6.onrender.com/api
 ```
 
 ### API Config Location
@@ -315,7 +315,7 @@ File: `src/app/config/apiConfig.ts`
 2. **Verify Backend Running**
    ```bash
    # Check if backend server is running
-   curl http://localhost:5000/api/dashboard/stats
+   curl https://bynd-backend-owi6.onrender.com/api/dashboard/stats
    ```
 
 3. **Check Network Tab**

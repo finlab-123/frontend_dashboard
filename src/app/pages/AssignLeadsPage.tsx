@@ -20,7 +20,7 @@ interface Agent {
   phone: string;
 }
 
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://bynd-backend-owi6.onrender.com/api";
 
 export function AssignLeadsPage() {
   const [leads, setLeads] = useState<Lead[]>([]);

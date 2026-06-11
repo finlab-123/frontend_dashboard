@@ -7,7 +7,7 @@ export function TopNav() {
 
   // 1. Fetch user status from backend on mount
   useEffect(() => {
-    fetch('http://localhost:5000/api/auth/me', { 
+    fetch('https://bynd-backend-owi6.onrender.com/api/auth/me', {
       method: 'GET',
       credentials: 'include' // Sends cookie to backend session check
     })
@@ -15,7 +15,7 @@ export function TopNav() {
       .then((response) => {
         // FIX: response.data is now a single user object, not an array!
         if (response.success && response.data) {
-          setCurrentUser(response.data); 
+          setCurrentUser(response.data);
         } else {
           setCurrentUser(null);
         }
@@ -41,14 +41,14 @@ export function TopNav() {
   // 3. Handle Logout Trigger
   const handleLogout = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/auth/logout', {
+      const res = await fetch('https://bynd-backend-owi6.onrender.com/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
       });
       const data = await res.json();
       if (data.success) {
         setCurrentUser(null);
-        window.location.href = '/login'; 
+        window.location.href = '/login';
       }
     } catch (error) {
       console.error("Logout failed:", error);
@@ -92,14 +92,14 @@ export function TopNav() {
                   {currentUser?.role}
                 </div>
               </div>
-              
+
               {/* Dynamic Avatar Container */}
               <div className="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center font-semibold shadow-sm text-sm text-white">
                 {getInitials(currentUser?.fullname)}
               </div>
 
               {/* Functional Logout Button */}
-              <button 
+              <button
                 onClick={handleLogout}
                 className="p-2 ml-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                 title="Log Out"

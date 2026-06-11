@@ -231,7 +231,7 @@ export function MyProductPage() {
 ### Environment Variables
 Make sure your `.env` or `.env.local` has:
 ```
-VITE_API_BASE_URL=http://localhost:5000/api
+VITE_API_BASE_URL=https://bynd-backend-owi6.onrender.com/api
 ```
 
 ### Backend Requirements

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
 // Ensure your API_CONFIG matches your actual backend URL
-const API_BASE = "http://localhost:5000"; 
+const API_BASE = "https://bynd-backend-owi6.onrender.com";
 
 const COLORS = ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe'];
 
@@ -85,8 +85,8 @@ export function DashboardPage() {
         const res = await fetch(`${API_BASE}/dashboard/stats`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const body = await res.json();
-        
-        console.log("Stats API Response:", body); 
+
+        console.log("Stats API Response:", body);
         setStats(body);
       } catch (err: any) {
         console.error('Error fetching stats:', err);
