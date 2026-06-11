@@ -2,7 +2,6 @@ import { createBrowserRouter, Route } from 'react-router';
 import { RootLayout } from './layouts/RootLayout';
 import { DashboardPage } from './pages/DashboardPage';
 import { AllLeadsPage } from './pages/AllLeadsPage';
-import { AssignLeadsPage } from './pages/AssignLeadsPage';
 import { VehicleLoanPage } from './pages/VehicleLoanPage';
 import UserDetailsPage from './pages/UserDetailsPage';
 import { HomeLoanPage } from './pages/HomeLoanPage';
@@ -27,7 +26,6 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: DashboardPage },
       { path: 'leads', Component: AllLeadsPage },
-      { path: 'assign-leads', Component: AssignLeadsPage },
       { path: 'vehicle-loan', Component: VehicleLoanPage },
       { path: 'home-loan', Component: HomeLoanPage },
       { path: 'user/:id', Component: UserDetailsPage },
