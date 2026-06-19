@@ -1,33 +1,9 @@
-import { useEffect, useState } from 'react';
 import { Search, Bell, LogOut, User } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export function TopNav() {
-  const [currentUser, setCurrentUser] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const { user: currentUser, loading, logout: handleLogout } = useAuth();
 
-  // 1. Fetch user status from backend on mount
-  useEffect(() => {
-    fetch('https://bynd-backend-owi6.onrender.com/api/auth/me', {
-      method: 'GET',
-      credentials: 'include' // Sends cookie to backend session check
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        // FIX: response.data is now a single user object, not an array!
-        if (response.success && response.data) {
-          setCurrentUser(response.data);
-        } else {
-          setCurrentUser(null);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching user session:", error);
-        setCurrentUser(null);
-      })
-      .finally(() => setLoading(false));
-  }, []);
-
-  // 2. Handle Dynamic Initials (e.g., "Priya Sharma" -> "PS")
   const getInitials = (name: string) => {
     if (!name) return '??';
     return name
@@ -38,22 +14,6 @@ export function TopNav() {
       .slice(0, 2);
   };
 
-  // 3. Handle Logout Trigger
-  const handleLogout = async () => {
-    try {
-      const res = await fetch('https://bynd-backend-owi6.onrender.com/api/auth/logout', {
-        method: 'POST',
-        credentials: 'include'
-      });
-      const data = await res.json();
-      if (data.success) {
-        setCurrentUser(null);
-        window.location.href = '/login';
-      }
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
 
   return (
     <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8">
